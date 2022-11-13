@@ -5,7 +5,7 @@ function Button ({ text, isClickButton, clickHandler }) {
     return (
         <button
             className={isClickButton ? 'click-button' : 'reset-button'}
-            onclick={clickHandler}>
+            onClick={clickHandler}>
             {text}
         </button>
     )

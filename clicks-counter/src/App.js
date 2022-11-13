@@ -5,11 +5,11 @@ import Button from './componentes/Button'
 function App() {
 
 const clickHandler = () => {
-
+  console.log('Click')
 }
 
 const resetCounter = () => {
-  
+  console.log('Reset')
 }
 
   return (
