@@ -12,6 +12,7 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   padding-top: 15px;
   font-family: lato, sans-serif;
 }
@@ -27,3 +28,4 @@ html, body {
 .logo {
   width: 30%;
 }
+

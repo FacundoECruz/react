@@ -3,6 +3,15 @@ import logo from './images/logo.png'
 import Button from './componentes/Button'
 
 function App() {
+
+const clickHandler = () => {
+
+}
+
+const resetCounter = () => {
+  
+}
+
   return (
     <div className='App'>
       <div className='logo-container'>
@@ -14,11 +23,11 @@ function App() {
         <Button
           text='Click'
           isClickButton={true}
-          clickHandler={} />
+          clickHandler={clickHandler} />
         <Button
           text='Reset'
           isClickButton={false}
-          clickHandler={} /> 
+          clickHandler={resetCounter} /> 
       </div>
     </div>
   );
