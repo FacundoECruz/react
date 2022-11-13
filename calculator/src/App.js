@@ -1,11 +1,19 @@
-import React from 'react';
+import React from 'react'
 import logo from './images/logo.jpg'
 import './App.css'
 import Button from './components/Button'
 import Screen from './components/Screen'
-import ClearButton from './components/ClearButton';
+import ClearButton from './components/ClearButton'
+import { useState } from 'react'
 
 function App() {
+
+const [input, setInput] = useState('')
+
+const addInput = val => {
+  setInput(input + val);
+}
+
   return (
     <div className='App'>
       <div className='title-container'>
@@ -15,7 +23,7 @@ function App() {
           alt='logo' />
       </div>
       <div className='calculator-container'>
-        <Screen />
+        <Screen input={input} />
         <div className='row'>
           <Button>1</Button>
           <Button>2</Button>
