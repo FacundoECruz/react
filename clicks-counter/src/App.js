@@ -1,6 +1,7 @@
 import './App.css';
 import logo from './images/logo.png'
 import Button from './componentes/Button'
+import Counter from './componentes/Counter'
 
 function App() {
 
@@ -20,6 +21,7 @@ const resetCounter = () => {
         alt='logo' />
       </div>
       <div className='main-container'>
+        <Counter />
         <Button
           text='Click'
           isClickButton={true}
