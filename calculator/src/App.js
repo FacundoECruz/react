@@ -3,6 +3,7 @@ import logo from './images/logo.jpg'
 import './App.css'
 import Button from './components/Button'
 import Screen from './components/Screen'
+import clearButton from './components/clearButton';
 
 function App() {
   return (
@@ -37,7 +38,9 @@ function App() {
           <Button>.</Button>
           <Button>/</Button>
         </div>
-        <div className='row'></div>
+        <div className='row'>
+          <clearButton>Clear</clearButton>
+        </div>
       </div>
     </div>
   );
