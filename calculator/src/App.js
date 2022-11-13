@@ -47,7 +47,7 @@ const addInput = val => {
           <Button clickHandler={addInput}>/</Button>
         </div>
         <div className='row'>
-          <ClearButton>Clear</ClearButton>
+          <ClearButton clearHandler={() => setInput('')}>Clear</ClearButton>
         </div>
       </div>
     </div>
