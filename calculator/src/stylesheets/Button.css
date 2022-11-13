@@ -18,3 +18,11 @@
 .operator {
     background-color: #00471b;
 }
+
+.button-container:hover {
+    background-color: #5a01a7;
+}
+
+.operator:hover {
+    background-color: #f60;
+}
