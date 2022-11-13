@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './images/logo.jpg'
 import './App.css'
+import Button from './components/Button'
 
 function App() {
   return (
@@ -12,7 +13,10 @@ function App() {
           alt='logo' />
       </div>
       <div className='calculator-container'>
-        <div className='row'></div>
+        <div className='row'>
+          <Button>1</Button>
+          <Button>+</Button>
+        </div>
         <div className='row'></div>
         <div className='row'></div>
         <div className='row'></div>
