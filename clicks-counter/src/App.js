@@ -1,5 +1,6 @@
 import './App.css';
 import logo from './images/logo.png'
+import Button from './componentes/Button'
 
 function App() {
   return (
@@ -10,7 +11,14 @@ function App() {
         alt='logo' />
       </div>
       <div className='main-container'>
-        
+        <Button
+          text='Click'
+          isClickButton={true}
+          clickHandler={} />
+        <Button
+          text='Reset'
+          isClickButton={false}
+          clickHandler={} /> 
       </div>
     </div>
   );
