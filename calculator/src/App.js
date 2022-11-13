@@ -11,6 +11,9 @@ function App() {
           className='logo'
           alt='logo' />
       </div>
+      <div className='calculator-container'>
+        
+      </div>
     </div>
   );
 }
