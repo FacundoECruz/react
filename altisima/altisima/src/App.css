@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+}
+
+body, html {
+  background-color: #E9D8A6;
+}
+
+h2 {
+  color: #001219;
+  font-family: Roboto, sans-serif;
+  text-shadow: 1px 1px 2px #94D2BD;
+}
