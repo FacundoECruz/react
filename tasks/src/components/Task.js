@@ -1,6 +1,7 @@
 import React from 'react';
+import '../stylesheets/Task.css'
 
-function Task() {
+function Task({ text }) {
   return (
     <div className='task-container'>
       <div className='task-text'>
