@@ -9,6 +9,9 @@ function App() {
           src={logo} 
           className='logo' />
       </div>
+      <div className='main-container'>
+        <h1>Tasks</h1>
+      </div>
     </div>
   );
 }
