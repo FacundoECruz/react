@@ -39,3 +39,11 @@ html, body {
   margin: 10px;
   border-radius: 26px;
 }
+
+h1 {
+  color: #1b1b32;
+  font-size: 25px;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin: 20px 0px;
+}
