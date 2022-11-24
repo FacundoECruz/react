@@ -7,18 +7,21 @@ function FormTask(props) {
 
   const changeHandler = e => {
     setInput(e.target.value);
-    console.log(e.target.value);
   }
 
   const sendHandler = e => {
+    e.preventDefault();
     const newTask = {
       id: '234234',
-      text: 'Hello'
+      text: input,
+      completed: false
     }
   }
 
   return (
-    <form className='task-form'>            
+    <form 
+      className='task-form'
+      onSubmit={sendHandler}>
       <input 
         className='task-input'
         type='text'
