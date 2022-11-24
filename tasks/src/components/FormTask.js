@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../stylesheets/FormTask.css'
+import { v4 as uuidv4 } from 'uuid'
 
 function FormTask(props) {
 
@@ -12,10 +13,12 @@ function FormTask(props) {
   const sendHandler = e => {
     e.preventDefault();
     const newTask = {
-      id: '234234',
+      id: uuidv4(),
       text: input,
       completed: false
     }
+
+    console.log(newTask);
   }
 
   return (
