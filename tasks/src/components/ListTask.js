@@ -1,5 +1,6 @@
 import React from 'react';
 import FormTask from './FormTask';
+import '../stylesheets/ListTask.css'
 
 function TaskList() {
   return (
