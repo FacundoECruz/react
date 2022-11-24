@@ -7,6 +7,11 @@ function ListTask() {
 
   const [tasks, setTask] = useState([]);
 
+  const addTask = task => {
+    console.log('Task added')
+    console.log(task)
+  }
+
   return (
     <>
       <FormTask />
