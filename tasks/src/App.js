@@ -1,6 +1,6 @@
 import './App.css';
 import logo from './images/logo.svg'
-import Task from './components/Task'
+import FormTask from './components/FormTask';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className='main-container'>
         <h1>Tasks</h1>
-        <Task text='Hola chowa'/>
+        <FormTask />
       </div>
     </div>
   );
