@@ -10,7 +10,13 @@ function ListTask() {
     <>
       <FormTask />
       <div className='task-list-container'>
-        LISTA DE TAREAS 
+        {
+          tasks.map((task) => 
+            <Task 
+              text={task.text}
+              completed={task.completed} />
+          )
+        }
       </div>
     </>
   )
