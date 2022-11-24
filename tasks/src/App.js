@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className='main-container'>
         <h1>Tasks</h1>
-        <FormTask />
+      
       </div>
     </div>
   );
