@@ -1,6 +1,6 @@
 import './App.css';
-import logo from './images/logo.svg'
-import FormTask from './components/FormTask';
+import logo from './images/logo.svg'  
+import ListTask from './components/ListTask';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className='main-container'>
         <h1>Tasks</h1>
-      
+        <ListTask />
       </div>
     </div>
   );

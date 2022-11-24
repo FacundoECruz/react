@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormTask from './FormTask';
 import '../stylesheets/ListTask.css'
 
-function TaskList() {
+function ListTask() {
+
+  const [tasks, setTask] = useState([]);
+
   return (
     <>
       <FormTask />
@@ -13,4 +16,4 @@ function TaskList() {
   )
 }
 
-export default TaskList;
+export default ListTask;
