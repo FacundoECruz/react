@@ -8,6 +8,7 @@ function ListTask() {
   const [tasks, setTask] = useState([]);
 
   const addTask = task => {
+    console.log(task)
     if (task.text.trim()) {
       task.text = task.text.trim();
       const updatedTasks = [task, ...tasks];
@@ -22,6 +23,8 @@ function ListTask() {
         {
           tasks.map((task) => 
             <Task 
+              key={task.id}
+              id={task.id}
               text={task.text}
               completed={task.completed} />
           )
