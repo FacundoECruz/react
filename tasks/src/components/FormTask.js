@@ -18,7 +18,7 @@ function FormTask(props) {
       completed: false
     }
 
-    console.log(newTask);
+    props.onSubmit(newTask)
   }
 
   return (

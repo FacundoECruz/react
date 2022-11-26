@@ -14,7 +14,7 @@ function ListTask() {
 
   return (
     <>
-      <FormTask />
+      <FormTask onSubmit={addTask} />
       <div className='task-list-container'>
         {
           tasks.map((task) => 
