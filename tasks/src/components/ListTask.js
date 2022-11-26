@@ -8,8 +8,11 @@ function ListTask() {
   const [tasks, setTask] = useState([]);
 
   const addTask = task => {
-    console.log('Task added')
-    console.log(task)
+    if (task.text.trim()) {
+      task.text = task.text.trim();
+      const updatedTasks = [task, ...tasks];
+      setTask(updatedTasks);
+    }
   }
 
   return (
