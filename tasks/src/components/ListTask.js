@@ -21,6 +21,16 @@ function ListTask() {
     setTask(updatedTasks);
   }
 
+  const crossOutTask = id => {
+    const updatedTasks = tasks.map(task => {
+      if (task.id === id) {
+        task.completed = !task.completed;
+      }
+      return task;
+    })
+    setTask(updatedTasks);
+  }
+
   return (
     <>
       <FormTask onSubmit={addTask} />
@@ -32,6 +42,7 @@ function ListTask() {
               id={task.id}
               text={task.text}
               completed={task.completed}
+              crossOutTask={crossOutTask}
               deleteTask={deleteTask} />
           )
         }
