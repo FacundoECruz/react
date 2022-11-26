@@ -16,6 +16,11 @@ function ListTask() {
     }
   }
 
+  const deleteTask = id => {
+    const updatedTasks = tasks.filter(task => task.id !== id);
+    setTask(updatedTasks);
+  }
+
   return (
     <>
       <FormTask onSubmit={addTask} />
@@ -26,7 +31,8 @@ function ListTask() {
               key={task.id}
               id={task.id}
               text={task.text}
-              completed={task.completed} />
+              completed={task.completed}
+              deleteTask={deleteTask} />
           )
         }
       </div>
