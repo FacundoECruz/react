@@ -7,6 +7,11 @@ function List() {
 
     const [players, setPlayers] = useState([]);
 
+    const addPlayer = player => {
+        console.log('Jugador agregado');
+        console.log(player);
+    }
+
     return (
         <>
         <Input />
