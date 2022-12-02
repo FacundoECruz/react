@@ -5,7 +5,7 @@ function Input(props) {
   return(
     <div className='main-input-container'>
       <div className='logo-container'>
-        <img src={logo}/>
+        <img src={logo} alt='...' />
       </div>
       <div className='input-container'>
         <h2>Agregar jugadores</h2>

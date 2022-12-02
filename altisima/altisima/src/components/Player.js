@@ -1,10 +1,10 @@
 import React from 'react';
-import '../stylesheets/Jugador.css'
+import '../stylesheets/Player.css'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 function Player ({ id, name, deletePlayer }) {
     return (
-      <div className={'player-container'}>
+      <div className='player-container'>
         <div 
           className='player-name'>
           {name}
@@ -16,3 +16,5 @@ function Player ({ id, name, deletePlayer }) {
       </div>    
     )
   }
+
+export default Player;
