@@ -39,3 +39,20 @@ h2 {
     text-shadow: 1px 1px 2px #94D2BD;
     margin: 5% 0%;
 }
+
+.input-button {
+    padding: 16px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    border: 1px solid #001219;
+    border-radius: 6px;
+    margin: 3px 0;
+    outline: none;
+    background: #0A9396;
+    color: #fff;
+}
+
+.input-button:hover { 
+    cursor: pointer;
+    background-color: #005F73;
+}

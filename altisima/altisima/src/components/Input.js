@@ -10,6 +10,9 @@ function Input(props) {
       <div className='input-container'>
         <h2>Agregar jugadores</h2>
         <input type='text' />
+        <div className='input-button'>
+          Agregar
+        </div>
       </div>
     </div>
   )
