@@ -4,14 +4,22 @@ import Player from './Player';
 import '../stylesheets/List.css'
 
 function List() {
+
+    const [players, setPlayers] = useState([]);
+
     return (
         <>
-          <Input />
+        <Input />
           <div className='list-container'>
-              LISTA DE JUGADORES
+            {
+                players.map((player) => 
+                <Player
+                    name={player.name} />
+                )
+            }
           </div>
         </>
-      )
-    }
+    );
+}
     
-    export default ListTask;
+export default List;

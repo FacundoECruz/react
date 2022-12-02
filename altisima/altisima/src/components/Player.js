@@ -10,7 +10,8 @@ function Player ({ id, name, deletePlayer }) {
           {name}
         </div>
         <div 
-          className='player-icon-container'>
+          className='player-icon-container'
+          onClick={() => deletePlayer(id)}>
           <AiOutlineCloseCircle className='player-icon'/>
         </div>
       </div>    
