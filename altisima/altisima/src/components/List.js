@@ -8,17 +8,22 @@ function List() {
     const [players, setPlayers] = useState([]);
 
     const addPlayer = player => {
-        console.log('Jugador agregado');
-        console.log(player);
+        if (player.name.trim()) {
+            player.name = player.name.trim();
+            const updatedPlayers = [player, ...players];
+            setPlayers(updatedPlayers);
+        }
     }
 
     return (
         <>
-        <Input />
+        <Input onSubmit={addPlayer} />
           <div className='list-container'>
             {
                 players.map((player) => 
                 <Player
+                    key={player.id}
+                    id={player.id}
                     name={player.name} />
                 )
             }

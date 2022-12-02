@@ -19,7 +19,7 @@ function Input(props) {
       name: text
     }
 
-    console.log(newPlayer);
+    props.onSubmit(newPlayer);
   }
 
   return (
