@@ -1,5 +1,5 @@
 .player-container {
-    width: 500px;
+    width: 300px;
     min-height: 65px;
     background-color: #1b1b32;
     margin: 5px 0px;
@@ -13,15 +13,15 @@
 }
 
 .player-container:nth-child(3n + 1) {
-    background-color: #1b1b32;
+    background-color: #0A9396;
 }
 
 .player-container:nth-child(3n + 2) {
-    background-color: #2a2a40;
+    background-color: #067476;
 }
 
 .player-container:nth-child(3n + 3) {
-    background-color: #3b3b4f;
+    background-color: #054a4b;
 }
 
 .player-name {
