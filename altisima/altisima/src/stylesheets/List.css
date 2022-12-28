@@ -1,9 +1,25 @@
 .list-container {
-    width: 40%;
+    width: 50%;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     /* justify-content: flex-start;
     align-items: flex-start; */
     margin-top: 15px;
+}
+
+.start-button {
+    width: 30%;
+    padding: 16px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    border: 1px solid #001219;
+    border-radius: 6px;
+    margin: 10px 0;
+    outline: none;
+    background: #005F73;
+    color: #fff;
+}
+
+.start-button:hover {
+    background-color: #94D2BD;
 }

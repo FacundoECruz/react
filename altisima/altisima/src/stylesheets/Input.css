@@ -1,5 +1,5 @@
 .main-input-container {
-    width: 40%;
+    width: 50%;
     margin-top: 15px;
 }
 
@@ -17,7 +17,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 5% 0px;
+    margin: 3% 0px;
 }
 
 input {

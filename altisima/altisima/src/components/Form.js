@@ -47,6 +47,9 @@ function List({ players, setPlayers }) {
             deletePlayer={deletePlayer}
           />
         ))}
+        {players.length >= 3 ? (
+          <button className="start-button">Start</button>
+        ) : null}
       </div>
     </>
   );
