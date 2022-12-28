@@ -3,6 +3,7 @@ import '../stylesheets/Player.css'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 function Player ({ id, name, deletePlayer }) {
+
     return (
       <div className='player-container'>
         <div 
