@@ -1,8 +1,9 @@
 .list-container {
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
     margin-top: 15px;
 }
