@@ -1,7 +1,5 @@
 import { useState } from "react";
 import logo from "../images/logo.jpg";
-import "../stylesheets/Input.css";
-import "../stylesheets/List.css";
 import "../stylesheets/Form.css";
 import { v4 as uuidv4 } from "uuid";
 import Player from "../components/Player";
