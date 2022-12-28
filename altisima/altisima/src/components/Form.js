@@ -12,7 +12,7 @@ function Input({ name, onChange, onSubmit }) {
       </div>
       <div className="input-container">
         <h2>Agregar jugadores</h2>
-        <form className="player-form" onSubmit={onSubmit} autocomplete="off">
+        <form className="player-form" onSubmit={onSubmit} autoComplete="off">
           <input
             className="player-input"
             type="text"

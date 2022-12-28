@@ -1,7 +1,7 @@
 .player-container {
     width: 60%;
     min-height: 65px;
-    background-color: #1b1b32;
+    background-color: #EE9B00;
     margin: 5px 0px;
     padding: 8px 15px 8px 20px;
     display: flex;
@@ -12,17 +12,21 @@
     cursor: pointer;
 }
 
-.player-container:nth-child(3n + 1) {
-    background-color: #0A9396;
+.player-container:hover {
+    background-color: #94D2BD;
+}
+
+/* .player-container:nth-child(3n + 1) {
+    background-color: #94D2BD;
 }
 
 .player-container:nth-child(3n + 2) {
-    background-color: #067476;
+    background-color: #0A9396;
 }
 
 .player-container:nth-child(3n + 3) {
-    background-color: #054a4b;
-}
+    background-color: #005F73;
+} */
 
 .player-name {
     width: 100%;
