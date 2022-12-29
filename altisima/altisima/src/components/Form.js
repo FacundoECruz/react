@@ -34,8 +34,9 @@ function List({ players, setPlayers }) {
     setPlayers(updatedPlayers);
   };
 
-  function handleClick(e) {
-    console.log("Send players array to backend")
+  function handleClick() {
+    
+    window.localStorage.setItem("players", players)
   }
 
   return (
@@ -52,8 +53,7 @@ function List({ players, setPlayers }) {
         {players.length >= 3 ? (
           <button
             className="start-button"
-            onClick={handleClick}
-          >
+            onClick={handleClick}>
             Start
           </button>
         ) : null}
