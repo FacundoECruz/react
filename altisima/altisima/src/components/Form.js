@@ -1,8 +1,8 @@
 import { useState } from "react";
 import logo from "../images/logo.jpg";
 import "../stylesheets/Form.css";
-import { v4 as uuidv4 } from "uuid";
 import Player from "../components/Player";
+import createCardsPerRound from '../javascripts/createCardsPerRound'
 
 function Input({ name, onChange, onSubmit }) {
   return (
@@ -36,7 +36,9 @@ function List({ players, setPlayers }) {
   };
 
   function handleClick() {
-    window.localStorage.setItem('players', JSON.stringify(players))    
+    window.localStorage.setItem('players', JSON.stringify(players))
+    const cardsPerRound = createCardsPerRound(players.length)
+    window.localStorage.setItem('cards', JSON.stringify(cardsPerRound))    
   }
 
   return (
@@ -70,9 +72,11 @@ function Form() {
     e.preventDefault();
 
     const newPlayer = {
-      id: uuidv4(),
+      id: name,
       name: name,
     };
+
+    //*****VALIDATE NAMES! */
 
     if (newPlayer.name.trim()) {
       newPlayer.name = newPlayer.name.trim();

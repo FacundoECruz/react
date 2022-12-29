@@ -17,7 +17,7 @@ function createCardsPerRound(players) {
     const minCardsByRound = 3;
     cardsPerRound[i] = randomNum(minCardsByRound, maxCardsByRound + 1);
   }
-  console.log(cardsPerRound);
+  return cardsPerRound
 }
 
 export default createCardsPerRound;
