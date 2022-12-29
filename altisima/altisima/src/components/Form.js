@@ -35,8 +35,7 @@ function List({ players, setPlayers }) {
   };
 
   function handleClick() {
-    
-    window.localStorage.setItem("players", players)
+    window.localStorage.setItem('players', JSON.stringify(players))    
   }
 
   return (
