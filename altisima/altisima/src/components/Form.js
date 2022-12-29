@@ -29,6 +29,7 @@ function Input({ name, onChange, onSubmit }) {
 }
 
 function List({ players, setPlayers }) {
+
   const deletePlayer = (id) => {
     const updatedPlayers = players.filter((player) => player.id !== id);
     setPlayers(updatedPlayers);
