@@ -74,6 +74,9 @@ function Form() {
     const newPlayer = {
       id: name,
       name: name,
+      score: 0,
+      bet: 0,
+      lose: 0
     };
 
     //*****VALIDATE NAMES! */
