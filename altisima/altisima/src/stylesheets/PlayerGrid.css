@@ -1,0 +1,97 @@
+.player-grids-container {
+    background-color: #005F73;
+    margin: 1% 1%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2%;
+}
+
+.player-info-container{
+    width: 40%;
+    border: 2px solid black;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1 {
+    color: #fff;
+}
+
+h1:hover{ 
+    transform: translate(-2px, -2px);
+}
+
+h2, h3 {
+    color: #001219;
+}
+
+span {
+    color: #E9D8A6;
+    margin: 0 7% 0 0;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.up-button {
+    background-color: rgb(127, 229, 127);
+    width: 40%;
+    border-radius: 20%;
+}
+
+.up-button:hover {
+    background-color: rgb(168, 245, 168);
+}
+
+.down-button {
+    background-color: rgb(247, 81, 81);
+    width: 40%;
+    border-radius: 20%;
+}
+
+.down-button:hover {
+    background-color: rgb(240, 119, 119);
+}
+
+.bet, .lose {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.label-display {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1em;
+}
+
+.num-display {
+    font-size: 1.2em;
+}
+
+.num-display-active {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.save-button {
+    width: 80px;
+    height: 40px;
+    background-color: #94D2BD;
+    font-family: 'Times New Roman', Times, serif;
+    align-self: center;
+    border-radius: 10%;
+}
+
+.save-button:hover {
+    background-color: #fff;
+}

@@ -1,14 +1,15 @@
 import React from "react";
 import "./App.css";
 import Form from "./components/Form"
+import Game from "./components/Game";
 
 function App() {
   
-  let startGame = false
+  let startGame = true
   
   return (
     <div className="App">
-      {startGame ? <h1>Game</h1> : <Form />}
+      {startGame ? <Game /> : <Form />}
     </div>
   );
 }
