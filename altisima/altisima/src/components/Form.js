@@ -3,7 +3,7 @@ import logo from "../images/logo.jpg";
 import "../stylesheets/Form.css";
 import Player from "../components/Player";
 import createCardsPerRound from '../javascripts/createCardsPerRound'
-
+//Starting Merge
 function Input({ name, onChange, onSubmit }) {
   return (
     <div className="main-input-container">
