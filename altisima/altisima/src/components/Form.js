@@ -83,6 +83,7 @@ function Form() {
       bid: 0,
       win: false,
       bidsLost: 0,
+      score: 0,
       id: name
     };
 

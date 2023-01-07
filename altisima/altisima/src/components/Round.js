@@ -1,24 +1,44 @@
 import React from "react";
 import PlayerGrid from "./PlayerGrid";
-import '../stylesheets/Round.css'
+import "../stylesheets/Round.css";
 
-function Round() {
-  const cardsPerRound = JSON.parse(window.localStorage.getItem("cards"));
-  const players = JSON.parse(window.localStorage.getItem("players"));
+function gameStateReducer(state, action) {
+  return state;
+}
 
-  const [round, setRound] = React.useState(1);
-  const [cardsInCurrent, setCardsInCurrent] = React.useState(cardsPerRound[0]);
+function Round({ round = 1 }) {
+  const gameData = window.localStorage.getItem("GameCreated");
+  const { cardsPerRound, players } = JSON.parse(gameData);
+
+  const playerResult = players.map((p) => {
+    return {name: p.name, score: p.score};
+  });
+
+  const [gameState, setGameState] = React.useReducer(gameStateReducer, {
+    rounds: [
+      {
+        current: round,
+        left: 9,
+        cardsToDeal: cardsPerRound[round - 1],
+      },
+    ],
+    status: "inProgress",
+    results: playerResult,
+  });
+
+  // const [round, setRound] = React.useState(1);
+  // const [cardsInCurrent, setCardsInCurrent] = React.useState(cardsPerRound[0]);
 
   const nextRound = () => {
-    setRound(round + 1);
-    setCardsInCurrent(cardsPerRound[round]);
+    round += 1;
+    setGameState({})
   };
 
   return (
     <div className="round-container">
       <div className="title-container">
         <h2>Ronda {round}</h2>
-        <h3>Cartas: {cardsInCurrent}</h3>
+        <h3>Cartas: {gameState.round.current}</h3>
       </div>
       <div className="player-grids-container">
         {players.map((player) => (
