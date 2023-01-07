@@ -3,7 +3,7 @@ import PlayerGrid from "./PlayerGrid";
 import "../stylesheets/Round.css";
 
 function gameStateReducer(state, action) {
-  return state;
+  // return state;
 }
 
 function Round({ round = 1 }) {
@@ -11,7 +11,7 @@ function Round({ round = 1 }) {
   const { cardsPerRound, players } = JSON.parse(gameData);
 
   const playerResult = players.map((p) => {
-    return {name: p.name, score: p.score};
+    return { name: p.name, score: p.score };
   });
 
   const [gameState, setGameState] = React.useReducer(gameStateReducer, {
@@ -31,19 +31,25 @@ function Round({ round = 1 }) {
 
   const nextRound = () => {
     round += 1;
-    setGameState({})
+    // setGameState({})
   };
 
   return (
     <div className="round-container">
       <div className="title-container">
         <h2>Ronda {round}</h2>
-        <h3>Cartas: {gameState.round.current}</h3>
+        <h3>Cartas: {cardsPerRound[round - 1]}</h3>
       </div>
       <div className="player-grids-container">
-        {players.map((player) => (
-          <PlayerGrid key={player.name} name={player.name} players={players} />
-        ))}
+        {/* <form> */}
+          {players.map((player) => (
+            <PlayerGrid
+              key={player.name}
+              name={player.name}
+              players={players}
+            />
+          ))}
+        {/* </form> */}
       </div>
       <button className="next-round-button" onClick={nextRound}>
         Siguiente Ronda
