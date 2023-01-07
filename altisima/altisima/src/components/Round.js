@@ -2,11 +2,9 @@ import React from "react";
 import PlayerGrid from "./PlayerGrid";
 import "../stylesheets/Round.css";
 
-function gameStateReducer(state, action) {
-  // return state;
-}
+const gameStateReducer = (state, action) => ({...state, ...action})
 
-function Round({ round = 1 }) {
+function Round() {
   const gameData = window.localStorage.getItem("GameCreated");
   const { cardsPerRound, players } = JSON.parse(gameData);
 
@@ -14,24 +12,35 @@ function Round({ round = 1 }) {
     return { name: p.name, score: p.score };
   });
 
+  let round = 1
+
   const [gameState, setGameState] = React.useReducer(gameStateReducer, {
+
     rounds: [
       {
         current: round,
         left: 9,
         cardsToDeal: cardsPerRound[round - 1],
-      },
+      }
     ],
     status: "inProgress",
     results: playerResult,
+    playerRound: [],
   });
 
   // const [round, setRound] = React.useState(1);
   // const [cardsInCurrent, setCardsInCurrent] = React.useState(cardsPerRound[0]);
 
-  const nextRound = () => {
-    round += 1;
-    // setGameState({})
+  const nextRound = (e) => {
+    e.preventDefault()
+    round = round + 1
+    setGameState({rounds: [
+      {
+        current: round,
+        left: 9,
+        cardsToDeal: cardsPerRound[round - 1],
+      }]})
+      console.log(gameState)
   };
 
   return (
@@ -41,7 +50,7 @@ function Round({ round = 1 }) {
         <h3>Cartas: {cardsPerRound[round - 1]}</h3>
       </div>
       <div className="player-grids-container">
-        {/* <form> */}
+        <form onSubmit={nextRound}>
           {players.map((player) => (
             <PlayerGrid
               key={player.name}
@@ -49,11 +58,11 @@ function Round({ round = 1 }) {
               players={players}
             />
           ))}
-        {/* </form> */}
+          <button type="submit">
+            Siguiente Ronda
+          </button>
+        </form>
       </div>
-      <button className="next-round-button" onClick={nextRound}>
-        Siguiente Ronda
-      </button>
     </div>
   );
 }
