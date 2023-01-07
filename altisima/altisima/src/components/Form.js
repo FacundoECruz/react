@@ -3,7 +3,8 @@ import logo from "../images/logo.jpg";
 import "../stylesheets/Form.css";
 import Player from "../components/Player";
 import createCardsPerRound from '../javascripts/createCardsPerRound'
-//Starting Merge
+import { v4 as uuidv4 } from 'uuid';
+
 function Input({ name, onChange, onSubmit }) {
   return (
     <div className="main-input-container">
@@ -36,9 +37,15 @@ function List({ players, setPlayers }) {
   };
 
   function handleClick() {
-    window.localStorage.setItem('players', JSON.stringify(players))
     const cardsPerRound = createCardsPerRound(players.length)
-    window.localStorage.setItem('cards', JSON.stringify(cardsPerRound))    
+    
+    const gameCreated = {
+      id: uuidv4(),
+      cardsPerRound: cardsPerRound,
+      players: players
+    }
+    
+    window.localStorage.setItem('GameCreated', JSON.stringify(gameCreated))
   }
 
   return (
@@ -72,11 +79,11 @@ function Form() {
     e.preventDefault();
 
     const newPlayer = {
-      id: name,
       name: name,
-      score: 0,
-      bet: 0,
-      lose: 0
+      bid: 0,
+      win: false,
+      bidsLost: 0,
+      id: name
     };
 
     //*****VALIDATE NAMES! */
