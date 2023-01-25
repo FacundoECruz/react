@@ -2,15 +2,43 @@ import React from "react";
 import PlayerGrid from "./PlayerGrid";
 import "../stylesheets/Round.css";
 
-const gameStateReducer = (state, action) => ({...state, ...action})
-
 function Round() {
   const gameData = window.localStorage.getItem("GameCreated");
   const { cardsPerRound, players } = JSON.parse(gameData);
 
-  const playerResult = players.map((p) => {
-    return { name: p.name, score: p.score };
-  });
+
+function gameStateReducer(state, action) {
+  switch (action.manage) {
+    case "bid": {
+      let newState = {...state}
+      newState.game[action.index].bid += 1
+      return newState 
+    }
+    case "lost": {
+      let newState = {...state}
+      newState.game[action.index].bidsLost += 1
+      return newState 
+    }
+    case "win": {
+      const player = state.game[action.player];
+      player.win = true;
+      return { ...state, ...player };
+    }
+    case "resetBid": {
+      let newState = {...state}
+      newState.game[action.index].bid = 0
+      return newState 
+    }
+    case "resetLost": {
+      let newState = {...state}
+      newState.game[action.index].bidsLost = 0
+      return newState 
+    }
+    default: {
+      throw new Error(`Unsupported action ${action.manage}`);
+    }
+  }
+}
 
   let round = 1
 
@@ -24,12 +52,28 @@ function Round() {
       }
     ],
     status: "inProgress",
-    results: playerResult,
+    results: players,
     playerRound: [],
   });
 
   // const [round, setRound] = React.useState(1);
   // const [cardsInCurrent, setCardsInCurrent] = React.useState(cardsPerRound[0]);
+
+  const handlePlayersBidState = (index) => {
+    setGameState({ index: index, manage: "bid" });
+  };
+
+  const handlePlayersLoseState = (index) => {
+    setGameState({ index: index, manage: "lost" });
+  };
+
+  const resetPlayersBid = (index) => {
+    setGameState({ index: index, manage: "resetBid" });
+  };
+
+  const resetPlayersLost = (index) => {
+    setGameState({ index: index, manage: "resetLost" });
+  };
 
   const nextRound = (e) => {
     e.preventDefault()
@@ -51,12 +95,15 @@ function Round() {
       </div>
       <div className="player-grids-container">
         <form onSubmit={nextRound}>
-          {players.map((player) => (
+          {players.map((p) => (
             <PlayerGrid
-              key={player.name}
-              name={player.name}
-              players={players}
-            />
+            state={gameState.results}
+            setBidState={() => handlePlayersBidState(p.key)}
+            setLoseState={() => handlePlayersLoseState(p.key)}
+            resetBid={() => resetPlayersBid(p.key)}
+            resetLost={() => resetPlayersLost(p.key)}
+            index={p.key}
+          />
           ))}
           <button type="submit">
             Siguiente Ronda
