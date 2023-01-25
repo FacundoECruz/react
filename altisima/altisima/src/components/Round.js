@@ -7,54 +7,52 @@ function Round() {
   const { cardsPerRound, players } = JSON.parse(gameData);
 
 
-function gameStateReducer(state, action) {
-  console.log(action)
-  switch (action.manage) {
-    case "bid": {
-      let newState = {...state}
-      newState.results[action.index].bid += 1
-      return newState 
-    }
-    case "lost": {
-      let newState = {...state}
-      newState.results[action.index].bidsLost += 1
-      return newState 
-    }
-    case "win": {
-      const player = state.results[action.player];
-      player.win = true;
-      return { ...state, ...player };
-    }
-    case "resetBid": {
-      let newState = {...state}
-      newState.results[action.index].bid = 0
-      return newState 
-    }
-    case "resetLost": {
-      let newState = {...state}
-      newState.results[action.index].bidsLost = 0
-      return newState 
-    }
-    default: {
-      throw new Error(`Unsupported action ${action.manage}`);
+  function gameStateReducer(state, action) {
+    console.log(action);
+    switch (action.manage) {
+      case "bid": {
+        let newState = { ...state };
+        newState.results[action.index].bid += 1;
+        return newState;
+      }
+      case "lost": {
+        let newState = { ...state };
+        newState.results[action.index].bidsLost += 1;
+        return newState;
+      }
+      case "win": {
+        const player = state.results[action.player];
+        player.win = true;
+        return { ...state, ...player };
+      }
+      case "resetBid": {
+        let newState = { ...state };
+        newState.results[action.index].bid = 0;
+        return newState;
+      }
+      case "resetLost": {
+        let newState = { ...state };
+        newState.results[action.index].bidsLost = 0;
+        return newState;
+      }
+      default: {
+        throw new Error(`Unsupported action ${action.manage}`);
+      }
     }
   }
-}
 
-  let round = 1
+  let round = 1;
 
   const [gameState, setGameState] = React.useReducer(gameStateReducer, {
-
     rounds: [
       {
         current: round,
         left: 9,
         cardsToDeal: cardsPerRound[round - 1],
-      }
+      },
     ],
     status: "inProgress",
     results: players,
-    playerRound: [],
   });
 
   const handlePlayersBidState = (index) => {
@@ -74,14 +72,17 @@ function gameStateReducer(state, action) {
   };
 
   const nextRound = (e) => {
-    e.preventDefault()
-    round = round + 1
-    setGameState({rounds: [
-      {
-        current: round,
-        left: 9,
-        cardsToDeal: cardsPerRound[round - 1],
-      }]})
+    e.preventDefault();
+    round = round + 1;
+    setGameState({
+      rounds: [
+        {
+          current: round,
+          left: 9,
+          cardsToDeal: cardsPerRound[round - 1],
+        },
+      ],
+    });
   };
 
   return (
@@ -91,21 +92,19 @@ function gameStateReducer(state, action) {
         <h3>Cartas: {cardsPerRound[round - 1]}</h3>
       </div>
       <div className="player-grids-container">
-        <form onSubmit={nextRound}>
+        <div>
           {players.map((p) => (
             <PlayerGrid
-            state={gameState.results}
-            setBidState={() => handlePlayersBidState(p.key)}
-            setLoseState={() => handlePlayersLoseState(p.key)}
-            resetBid={() => resetPlayersBid(p.key)}
-            resetLost={() => resetPlayersLost(p.key)}
-            index={p.key}
-          />
+              state={gameState.results}
+              setBidState={() => handlePlayersBidState(p.key)}
+              setLoseState={() => handlePlayersLoseState(p.key)}
+              resetBid={() => resetPlayersBid(p.key)}
+              resetLost={() => resetPlayersLost(p.key)}
+              index={p.key}
+            />
           ))}
-          <button type="submit">
-            Siguiente Ronda
-          </button>
-        </form>
+          <button onClick={nextRound}>Siguiente Ronda</button>
+        </div>
       </div>
     </div>
   );
