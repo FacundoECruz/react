@@ -8,30 +8,31 @@ function Round() {
 
 
 function gameStateReducer(state, action) {
+  console.log(action)
   switch (action.manage) {
     case "bid": {
       let newState = {...state}
-      newState.game[action.index].bid += 1
+      newState.results[action.index].bid += 1
       return newState 
     }
     case "lost": {
       let newState = {...state}
-      newState.game[action.index].bidsLost += 1
+      newState.results[action.index].bidsLost += 1
       return newState 
     }
     case "win": {
-      const player = state.game[action.player];
+      const player = state.results[action.player];
       player.win = true;
       return { ...state, ...player };
     }
     case "resetBid": {
       let newState = {...state}
-      newState.game[action.index].bid = 0
+      newState.results[action.index].bid = 0
       return newState 
     }
     case "resetLost": {
       let newState = {...state}
-      newState.game[action.index].bidsLost = 0
+      newState.results[action.index].bidsLost = 0
       return newState 
     }
     default: {
@@ -55,9 +56,6 @@ function gameStateReducer(state, action) {
     results: players,
     playerRound: [],
   });
-
-  // const [round, setRound] = React.useState(1);
-  // const [cardsInCurrent, setCardsInCurrent] = React.useState(cardsPerRound[0]);
 
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
@@ -84,7 +82,6 @@ function gameStateReducer(state, action) {
         left: 9,
         cardsToDeal: cardsPerRound[round - 1],
       }]})
-      console.log(gameState)
   };
 
   return (

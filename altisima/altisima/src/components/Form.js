@@ -84,7 +84,8 @@ function Form() {
       win: false,
       bidsLost: 0,
       score: 0,
-      id: name
+      id: name,
+      key: players.length
     };
 
     //*****VALIDATE NAMES! */

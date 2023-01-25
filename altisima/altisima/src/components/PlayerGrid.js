@@ -8,11 +8,7 @@ function PlayerGrid({
   resetBid,
   resetLost,
   index,
-}) 
-
-{
-  console.log(index)
-
+}) {
   return (
     <div>
       <h2>{state[index].name}</h2>
