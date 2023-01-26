@@ -59,7 +59,7 @@ function Round() {
     results: players,
   });
 
-  console.log(gameState.results);
+  console.log(gameState);
 
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
@@ -105,8 +105,8 @@ function Round() {
   return (
     <div className="round-container">
       <div className="title-container">
-        <h2>Ronda {round}</h2>
-        <h3>Cartas: {cardsPerRound[round - 1]}</h3>
+        <h2>Ronda {gameState.rounds[0].current}</h2>
+        <h3>Cartas: {gameState.rounds[0].cardsToDeal}</h3>
       </div>
       <div className="player-grids-container">
         <div>
