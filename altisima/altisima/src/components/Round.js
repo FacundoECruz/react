@@ -50,14 +50,19 @@ function Round() {
   const [gameState, setGameState] = React.useReducer(gameStateReducer, {
     rounds: [
       {
-        current: round,
-        left: leftRounds,
+        current: 0,
+        left: 8,
         cardsToDeal: cardsPerRound[round - 1],
       },
     ],
     status: "inProgress",
     results: players,
   });
+
+  
+  React.useEffect(() => {
+    window.localStorage.setItem('gameState', JSON.stringify(gameState))
+  }, [gameState])
 
   console.log(gameState);
 
@@ -84,15 +89,16 @@ function Round() {
     finishedRound.forEach(p => {
       if(p.bidsLost === 0) {
         p.win = true;
-        p.score = p.score + 5 + p.bid;
-      } else {
-        p.score = p.score - p.bidsLost; 
-      }
+        // p.score = p.score + 5 + p.bid;
+      } 
+      // else {
+      //   p.score = p.score - p.bidsLost; 
+      // }
     })
     setGameState({
       rounds: [
         {
-          current: round,
+          current: round + 1,
           left: leftRounds - 1,
           cardsToDeal: cardsPerRound[round - 1],
         },
