@@ -92,7 +92,7 @@ function Round() {
         p.win = true;
       }
     });
-    let stateForBackend = gameState.results;
+    const stateForBackend = gameState.results;
     let newStateForBackend = [];
     stateForBackend.map(p => {
       let {name, bid, win, bidsLost} = p; 
@@ -115,7 +115,7 @@ function Round() {
           cardsToDeal: cardsPerRound[round - 1],
         },
       ],
-      results: finishedRound,
+      results: players,
       manage: "round",
     });
   };
