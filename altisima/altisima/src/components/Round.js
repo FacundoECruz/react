@@ -118,7 +118,7 @@ function Round() {
         <h3>Cartas: {gameState.rounds[0].cardsToDeal}</h3>
       </div>
       <div className="player-grids-container">
-        <div>
+        <div className="players-and-button">
           {players.map((p) => (
             <PlayerGrid
               state={gameState.results}

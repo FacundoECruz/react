@@ -11,15 +11,21 @@ function PlayerGrid({
 }) {
   return (
     <div className="player-info-container">
-      <h2>{state[index].name}</h2>
-      <p onClick={resetBid}>Apuesta</p>
-      <button id="bid" onClick={setBidState}>
-        {state[index].bid}
-      </button>
-      <p onClick={resetLost}>Pierde</p>
-      <button id="lost" onClick={setLoseState}>
-        {state[index].bidsLost}
-      </button>
+      <h2 className="name">{state[index].name}</h2>
+      <div className="buttons">
+        <div className="bid-container">
+          <p className="bid-label" onClick={resetBid}>Apuesta</p>
+          <button id="bid" onClick={setBidState}>
+            {state[index].bid}
+          </button>
+        </div>
+        <div className="lost-container">
+          <p className="lost-label" onClick={resetLost}>Pierde</p>
+          <button id="lost" onClick={setLoseState}>
+            {state[index].bidsLost}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

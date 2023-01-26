@@ -7,7 +7,4 @@
 body,
 html {
   background-color: #E9D8A6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
