@@ -9,9 +9,11 @@
   padding: 2%;
 }
 
-.players-and-button{
-    display: flex;
-    flex-direction: column;
+.players-and-button {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 .player-info-container {
@@ -24,15 +26,20 @@
   justify-content: space-evenly;
 }
 
-.buttons{ 
- display: flex;
- flex-direction: row;
+.buttons {
+  width: 40%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 3px solid black;
 }
 
 .name {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-    margin: 0 7% 0 0;
+  margin: 0 7% 0 0;
+  align-self: center;
 }
 
 h2 {
@@ -47,35 +54,52 @@ h3 {
   color: #001219;
 }
 
-p {
-  color: #e9d8a6;
-  margin: 0 7% 0 0;
-}
-
-#bid {
+#bid-button {
   background-color: rgb(127, 229, 127);
-  width: 40%;
+  width: 100%;
+  height: 40px;
   border-radius: 20%;
+  align-self: center;
 }
 
-#bid:hover {
+#bid-button:hover {
   background-color: rgb(168, 245, 168);
 }
 
-#lost {
+#lost-button {
   background-color: rgb(247, 81, 81);
-  width: 40%;
+  width: 100%;
+  height: 40px;
   border-radius: 20%;
+  align-self: center;
 }
 
-#lost:hover {
+#lost-button:hover {
   background-color: rgb(240, 119, 119);
 }
 
 .bid-container,
 .lost-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 5%;
+}
+
+.label {
+    width: 100%;
+    height: 40%;
+    color: #e9d8a6;
+    margin: 2%;
+    border: 2px solid black;
+    padding: 3%;
+    text-align: center;
+    border-radius: 25%;
+}
+
+.label:hover {
+  background-color: white;
+  color: black;
 }
