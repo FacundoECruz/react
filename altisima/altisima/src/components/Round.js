@@ -36,7 +36,6 @@ function Round() {
       }
       case "round": {
         let newState = {...state, ...action};
-        console.log(newState)
         return newState;
       }
       default: {
@@ -60,7 +59,7 @@ function Round() {
     results: players,
   });
 
-  // console.log(gameState.results);
+  console.log(gameState.results);
 
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
@@ -81,6 +80,12 @@ function Round() {
   const nextRound = (e) => {
     e.preventDefault();
     round = round + 1;
+    let finishedRound = gameState.results;
+    finishedRound.forEach(p => {
+      if(p.bidsLost === 0) {
+        p.win = true;
+      }
+    })
     setGameState({
       rounds: [
         {
@@ -89,6 +94,7 @@ function Round() {
           cardsToDeal: cardsPerRound[round - 1],
         },
       ],
+      results: finishedRound,
       manage: "round",
     });
   };
