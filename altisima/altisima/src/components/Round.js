@@ -35,7 +35,7 @@ function Round() {
         return newState;
       }
       case "round": {
-        let newState = {...state, ...action};
+        let newState = { ...state, ...action };
         return newState;
       }
       default: {
@@ -59,16 +59,13 @@ function Round() {
     results: players,
   });
 
-  
   React.useEffect(() => {
-    window.localStorage.setItem('gameState', JSON.stringify(gameState))
-  }, [])
+    window.localStorage.setItem("gameState", JSON.stringify(gameState));
+  }, []);
 
-  //Here we need a reference value, that comes from backend, 
-  //like rounds, and this will only run when rounds change. 
+  //Here we need a reference value, that comes from backend,
+  //like rounds, and this will only run when rounds change.
   //And then we can reset p.bid and p.bidsLost.
-
-  console.log(gameState);
 
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
@@ -90,17 +87,17 @@ function Round() {
     e.preventDefault();
     round = round + 1;
     let finishedRound = gameState.results;
-    finishedRound.forEach(p => {
-      if(p.bidsLost === 0) {
+    finishedRound.forEach((p) => {
+      if (p.bidsLost === 0) {
         p.win = true;
         // p.score = p.score + 5 + p.bid;
-      } 
+      }
       // p.bid = 0;
       // p.bidsLost = 0;
       // else {
-      //   p.score = p.score - p.bidsLost; 
+      //   p.score = p.score - p.bidsLost;
       // }
-    })
+    });
     setGameState({
       rounds: [
         {
@@ -117,7 +114,7 @@ function Round() {
   return (
     <div className="round-container">
       <div className="title-container">
-        <h2>Ronda {gameState.rounds[0].current}</h2>
+        <h1>Ronda {gameState.rounds[0].current}</h1>
         <h3>Cartas: {gameState.rounds[0].cardsToDeal}</h3>
       </div>
       <div className="player-grids-container">
@@ -132,8 +129,10 @@ function Round() {
               index={p.key}
             />
           ))}
-          <button onClick={nextRound}>Siguiente Ronda</button>
         </div>
+        <button className="next-round-button" onClick={nextRound}>
+          Siguiente Ronda
+        </button>
       </div>
     </div>
   );

@@ -17,19 +17,19 @@
     justify-content: space-between;
 }
 
-h1 {
+h2 {
     color: #fff;
 }
 
-h1:hover{ 
+h2:hover{ 
     transform: translate(-2px, -2px);
 }
 
-h2, h3 {
+h3 {
     color: #001219;
 }
 
-span {
+p {
     color: #E9D8A6;
     margin: 0 7% 0 0;
 }
@@ -41,27 +41,27 @@ span {
     justify-content: center;
 }
 
-.up-button {
+#bid {
     background-color: rgb(127, 229, 127);
     width: 40%;
     border-radius: 20%;
 }
 
-.up-button:hover {
+#bid:hover {
     background-color: rgb(168, 245, 168);
 }
 
-.down-button {
+#lost {
     background-color: rgb(247, 81, 81);
     width: 40%;
     border-radius: 20%;
-}
+}  
 
-.down-button:hover {
+#lost:hover {
     background-color: rgb(240, 119, 119);
 }
 
-.bet, .lose {
+#bid, #lost {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -72,26 +72,4 @@ span {
     display: flex;
     flex-direction: row;
     font-size: 1.1em;
-}
-
-.num-display {
-    font-size: 1.2em;
-}
-
-.num-display-active {
-    font-size: 1.2em;
-    color: #fff;
-}
-
-.save-button {
-    width: 80px;
-    height: 40px;
-    background-color: #94D2BD;
-    font-family: 'Times New Roman', Times, serif;
-    align-self: center;
-    border-radius: 10%;
-}
-
-.save-button:hover {
-    background-color: #fff;
 }

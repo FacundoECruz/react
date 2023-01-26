@@ -10,7 +10,7 @@ function PlayerGrid({
   index,
 }) {
   return (
-    <div>
+    <div className="player-info-container">
       <h2>{state[index].name}</h2>
       <p onClick={resetBid}>Apuesta</p>
       <button id="bid" onClick={setBidState}>
