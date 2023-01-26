@@ -7,7 +7,7 @@ function Round() {
   const { cardsPerRound, players } = JSON.parse(gameData);
 
   function gameStateReducer(state, action) {
-    console.log(action);
+    // console.log(action);
     switch (action.manage) {
       case "bid": {
         let newState = { ...state };
@@ -35,8 +35,9 @@ function Round() {
         return newState;
       }
       case "round": {
-        let newState = {...state};
-
+        let newState = {...state, ...action};
+        console.log(newState)
+        return newState;
       }
       default: {
         throw new Error(`Unsupported action ${action.manage}`);
@@ -59,7 +60,7 @@ function Round() {
     results: players,
   });
 
-  console.log(gameState.results);
+  // console.log(gameState.results);
 
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
