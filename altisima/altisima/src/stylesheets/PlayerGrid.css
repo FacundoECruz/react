@@ -60,10 +60,13 @@ h3 {
   height: 40px;
   border-radius: 20%;
   align-self: center;
+  font-size: large;
+  font-weight: 700;
 }
 
 #bid-button:hover {
   background-color: rgb(168, 245, 168);
+  cursor: pointer;
 }
 
 #lost-button {
@@ -72,10 +75,13 @@ h3 {
   height: 40px;
   border-radius: 20%;
   align-self: center;
+  font-size: large;
+  font-weight: 700;
 }
 
 #lost-button:hover {
   background-color: rgb(240, 119, 119);
+  cursor: pointer;
 }
 
 .bid-container,
@@ -97,9 +103,11 @@ h3 {
     padding: 3%;
     text-align: center;
     border-radius: 25%;
+    font-weight: 700;
 }
 
 .label:hover {
   background-color: white;
   color: black;
+  cursor: pointer;
 }
