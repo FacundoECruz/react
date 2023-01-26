@@ -6,7 +6,6 @@ function Round() {
   const gameData = window.localStorage.getItem("GameCreated");
   const { cardsPerRound, players } = JSON.parse(gameData);
 
-
   function gameStateReducer(state, action) {
     console.log(action);
     switch (action.manage) {
@@ -35,6 +34,10 @@ function Round() {
         newState.results[action.index].bidsLost = 0;
         return newState;
       }
+      case "round": {
+        let newState = {...state};
+
+      }
       default: {
         throw new Error(`Unsupported action ${action.manage}`);
       }
@@ -42,18 +45,21 @@ function Round() {
   }
 
   let round = 1;
+  let leftRounds = 8;
 
   const [gameState, setGameState] = React.useReducer(gameStateReducer, {
     rounds: [
       {
         current: round,
-        left: 9,
+        left: leftRounds,
         cardsToDeal: cardsPerRound[round - 1],
       },
     ],
     status: "inProgress",
     results: players,
   });
+
+  console.log(gameState.results);
 
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
@@ -78,10 +84,11 @@ function Round() {
       rounds: [
         {
           current: round,
-          left: 9,
+          left: leftRounds - 1,
           cardsToDeal: cardsPerRound[round - 1],
         },
       ],
+      manage: "round",
     });
   };
 
