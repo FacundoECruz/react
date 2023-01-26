@@ -62,7 +62,11 @@ function Round() {
   
   React.useEffect(() => {
     window.localStorage.setItem('gameState', JSON.stringify(gameState))
-  }, [gameState])
+  }, [])
+
+  //Here we need a reference value, that comes from backend, 
+  //like rounds, and this will only run when rounds change. 
+  //And then we can reset p.bid and p.bidsLost.
 
   console.log(gameState);
 
@@ -91,6 +95,8 @@ function Round() {
         p.win = true;
         // p.score = p.score + 5 + p.bid;
       } 
+      // p.bid = 0;
+      // p.bidsLost = 0;
       // else {
       //   p.score = p.score - p.bidsLost; 
       // }
