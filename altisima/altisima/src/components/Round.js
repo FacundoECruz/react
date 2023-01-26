@@ -59,9 +59,9 @@ function Round() {
     results: players,
   });
 
-  React.useEffect(() => {
-    window.localStorage.setItem("gameState", JSON.stringify(gameState));
-  }, []);
+  // React.useEffect(() => {
+  //   window.localStorage.setItem("gameState", JSON.stringify(gameState));
+  // }, []);
 
   //Here we need a reference value, that comes from backend,
   //like rounds, and this will only run when rounds change.
@@ -90,14 +90,23 @@ function Round() {
     finishedRound.forEach((p) => {
       if (p.bidsLost === 0) {
         p.win = true;
-        // p.score = p.score + 5 + p.bid;
       }
-      // p.bid = 0;
-      // p.bidsLost = 0;
-      // else {
-      //   p.score = p.score - p.bidsLost;
-      // }
     });
+    let stateForBackend = gameState.results;
+    let newStateForBackend = [];
+    stateForBackend.map(p => {
+      let {name, bid, win, bidsLost} = p; 
+      newStateForBackend.push({
+        name: name,
+        bid: bid,
+        win: win,
+        bidsLost: bidsLost,
+      })
+      console.log(newStateForBackend)
+      return newStateForBackend
+    })
+
+    window.localStorage.setItem("gameState", JSON.stringify(newStateForBackend));
     setGameState({
       rounds: [
         {
