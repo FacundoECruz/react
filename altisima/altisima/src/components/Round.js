@@ -84,6 +84,9 @@ function Round() {
     finishedRound.forEach(p => {
       if(p.bidsLost === 0) {
         p.win = true;
+        p.score = p.score + 5 + p.bid;
+      } else {
+        p.score = p.score - p.bidsLost; 
       }
     })
     setGameState({
