@@ -9,7 +9,6 @@ function Round() {
   const { cardsPerRound, players } = JSON.parse(gameData);
 
   function gameStateReducer(state, action) {
-    // console.log(action);
     switch (action.manage) {
       case "bid": {
         let newState = { ...state };
@@ -61,14 +60,6 @@ function Round() {
     results: players,
   });
 
-  // React.useEffect(() => {
-  //   window.localStorage.setItem("gameState", JSON.stringify(gameState));
-  // }, []);
-
-  //Here we need a reference value, that comes from backend,
-  //like rounds, and this will only run when rounds change.
-  //And then we can reset p.bid and p.bidsLost.
-
   const handlePlayersBidState = (index) => {
     setGameState({ index: index, manage: "bid" });
   };
@@ -89,21 +80,17 @@ function Round() {
     e.preventDefault();
     let finishedRound = gameState.results;
     if (checkLose(finishedRound)) {
-      console.log('Salio false')
       window.alert("No pueden ganar todos!!");
     } else {
-      console.log('Salio true')
-      round = round + 1;
       finishedRound.forEach((p) => {
         if (p.bidsLost === 0) {
           p.win = true;
         }
       });
 
-      const stateForBackend = gameState.results;
-      const playersRound = dataForBackend(stateForBackend);
-
+      const playersRound = dataForBackend(finishedRound);
       window.localStorage.setItem("gameState", JSON.stringify(playersRound));
+      
       setGameState({
         rounds: [
           {
