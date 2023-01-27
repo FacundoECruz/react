@@ -3,10 +3,20 @@ import logo from "../images/logo.jpg";
 import "../stylesheets/Form.css";
 import Player from "../components/Player";
 import createCardsPerRound from "../javascripts/createCardsPerRound";
-import validateNames from "../javascripts/validateNames";
 import { v4 as uuidv4 } from "uuid";
 
-function Input({ name, onChange, onSubmit, repeatedNames }) {
+function Input({ name, onChange, onSubmit, players }) {
+  
+  const testRepeatedNames = () => {
+    if (players.length) {
+      players.map((p) => {
+        let check = p.name === name ? true : false;
+        console.log(check);
+        return check;
+      });
+    }
+  };
+  
   return (
     <div className="main-input-container">
       <div className="logo-container">
@@ -23,7 +33,7 @@ function Input({ name, onChange, onSubmit, repeatedNames }) {
             value={name}
             onChange={onChange}
           />
-          {repeatedNames ? (
+          {testRepeatedNames() ? (
             <p className="repeated-name">El nombre ya existe</p>
           ) : null}
           <button className="input-button">Agregar</button>
@@ -76,8 +86,6 @@ function Form() {
   const [name, setName] = useState("");
   const [players, setPlayers] = useState([]);
 
-  let repeatedNames = false;
-
   const addPlayer = (e) => {
     e.preventDefault();
 
@@ -106,7 +114,7 @@ function Form() {
         name={name}
         onChange={(e) => setName(e.target.value)}
         onSubmit={addPlayer}
-        repeatedNames={repeatedNames}
+        players={players}
       />
       <List players={players} setPlayers={setPlayers} />
     </div>
