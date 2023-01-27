@@ -42,7 +42,7 @@ input {
     outline: none;
 }
 
-h2 {
+#form-title {
     color: #001219;
     font-family: Roboto, sans-serif;
     text-shadow: 1px 1px 2px #94D2BD;
