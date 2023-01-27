@@ -2,9 +2,9 @@ import { useState } from "react";
 import logo from "../images/logo.jpg";
 import "../stylesheets/Form.css";
 import Player from "../components/Player";
-import createCardsPerRound from '../javascripts/createCardsPerRound'
-import validateNames from "../javascripts/validateNames"
-import { v4 as uuidv4 } from 'uuid';
+import createCardsPerRound from "../javascripts/createCardsPerRound";
+import validateNames from "../javascripts/validateNames";
+import { v4 as uuidv4 } from "uuid";
 
 function Input({ name, onChange, onSubmit, repeatedNames }) {
   return (
@@ -23,7 +23,9 @@ function Input({ name, onChange, onSubmit, repeatedNames }) {
             value={name}
             onChange={onChange}
           />
-          {repeatedNames ? <p className="repeated-name">El nombre ya existe</p> : null}
+          {repeatedNames ? (
+            <p className="repeated-name">El nombre ya existe</p>
+          ) : null}
           <button className="input-button">Agregar</button>
         </form>
       </div>
@@ -32,22 +34,21 @@ function Input({ name, onChange, onSubmit, repeatedNames }) {
 }
 
 function List({ players, setPlayers }) {
-
   const deletePlayer = (id) => {
     const updatedPlayers = players.filter((player) => player.id !== id);
     setPlayers(updatedPlayers);
   };
 
   function handleClick() {
-    const cardsPerRound = createCardsPerRound(players.length)
-    
+    const cardsPerRound = createCardsPerRound(players.length);
+
     const gameCreated = {
       id: uuidv4(),
       cardsPerRound: cardsPerRound,
-      players: players
-    }
-    
-    window.localStorage.setItem('GameCreated', JSON.stringify(gameCreated))
+      players: players,
+    };
+
+    window.localStorage.setItem("GameCreated", JSON.stringify(gameCreated));
   }
 
   return (
@@ -62,9 +63,7 @@ function List({ players, setPlayers }) {
           />
         ))}
         {players.length >= 3 ? (
-          <button
-            className="start-button"
-            onClick={handleClick}>
+          <button className="start-button" onClick={handleClick}>
             Start
           </button>
         ) : null}
@@ -89,13 +88,11 @@ function Form() {
       bidsLost: 0,
       score: 0,
       id: name,
-      key: players.length
+      key: players.length,
     };
 
     //*****VALIDATE NAMES! */
-    if(!validateNames(JSON.stringify(players), newPlayer.name)){
-      repeatedNames = true;
-    }else if (newPlayer.name.trim()) {
+    if (newPlayer.name.trim()) {
       newPlayer.name = newPlayer.name.trim();
       const updatedPlayers = [...players, newPlayer];
       setPlayers(updatedPlayers);

@@ -1,14 +1,18 @@
 const validateNames = (players, newPlayer) => {
-  console.log(players);
+  let playersList = JSON.parse(players);
 
-  // if (players.length !== 2) {
-  //   players.map((p) => {
-  //     if (p.name === newPlayer) {
-  //       return false;
-  //     }
-  //   });
-  // }
-  return true;
+  if (playersList.length === 0) {
+    return false;
+  } else {
+    playersList.map((p) => {
+      console.log(p.name, newPlayer)
+      if (p.name === newPlayer) {
+        console.log("REPEATED NAME!!!!")
+        return true;
+      } 
+    });
+    return false;
+  }
 };
 
 export default validateNames;
