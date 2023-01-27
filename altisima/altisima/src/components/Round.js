@@ -1,5 +1,7 @@
 import React from "react";
 import PlayerGrid from "./PlayerGrid";
+import dataForBackend from "../javascripts/dataForBackend";
+import checkLose from "../javascripts/checkLose"
 import "../stylesheets/Round.css";
 
 function Round() {
@@ -85,39 +87,35 @@ function Round() {
 
   const nextRound = (e) => {
     e.preventDefault();
-    round = round + 1;
     let finishedRound = gameState.results;
-    finishedRound.forEach((p) => {
-      if (p.bidsLost === 0) {
-        p.win = true;
-      }
-    });
-    const stateForBackend = gameState.results;
-    let newStateForBackend = [];
-    stateForBackend.map(p => {
-      let {name, bid, win, bidsLost} = p; 
-      newStateForBackend.push({
-        name: name,
-        bid: bid,
-        win: win,
-        bidsLost: bidsLost,
-      })
-      console.log(newStateForBackend)
-      return newStateForBackend
-    })
+    if (checkLose(finishedRound)) {
+      console.log('Salio false')
+      window.alert("No pueden ganar todos!!");
+    } else {
+      console.log('Salio true')
+      round = round + 1;
+      finishedRound.forEach((p) => {
+        if (p.bidsLost === 0) {
+          p.win = true;
+        }
+      });
 
-    window.localStorage.setItem("gameState", JSON.stringify(newStateForBackend));
-    setGameState({
-      rounds: [
-        {
-          current: round + 1,
-          left: leftRounds - 1,
-          cardsToDeal: cardsPerRound[round - 1],
-        },
-      ],
-      results: players,
-      manage: "round",
-    });
+      const stateForBackend = gameState.results;
+      const playersRound = dataForBackend(stateForBackend);
+
+      window.localStorage.setItem("gameState", JSON.stringify(playersRound));
+      setGameState({
+        rounds: [
+          {
+            current: round + 1,
+            left: leftRounds - 1,
+            cardsToDeal: cardsPerRound[round - 1],
+          },
+        ],
+        results: players,
+        manage: "round",
+      });
+    }
   };
 
   return (
