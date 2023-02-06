@@ -1,9 +1,9 @@
 import React from "react";
 import PlayerGrid from "./PlayerGrid";
-import dataForBackend from "../javascripts/dataForBackend";
 import { useContext } from "react";
 import { GameContext } from "../store/GameProvider";
 import { types, cardsPerRound } from "../store/GameReducer";
+import Table from "./Table";
 import "../stylesheets/Round.css";
 
 function Round() {
@@ -12,6 +12,7 @@ function Round() {
   const { round, players, table } = game;
 
   return (
+    <>
     <div className="round-container">
       <div className="title-container">
         <h1>Ronda {round}</h1>
@@ -33,6 +34,8 @@ function Round() {
         </button>
       </div>
     </div>
+    <Table data={table}/>
+    </>
   );
 }
 

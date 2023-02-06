@@ -53,7 +53,7 @@ const gameReducer = (state, action) => {
         newState.table = table;
         newState.round = newState.round += 1;
       }
-      console.log(newState);
+      console.log(newState.players)
       return newState;
     }
     case types.clean: {
