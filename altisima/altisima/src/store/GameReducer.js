@@ -1,14 +1,15 @@
 import nextRound from "../javascripts/nextRound";
+import checkLose from "../javascripts/checkLose";
 
 const dataFromLocalStorage = window.localStorage.getItem("GameCreated");
-const gameData = JSON.parse(dataFromLocalStorage)
+const gameData = JSON.parse(dataFromLocalStorage);
 const { cardsPerRound, players } = gameData;
 
 const gameState = {
   round: 1,
   players,
-  table: []
-}
+  table: [],
+};
 
 const types = {
   addBid: "bid - add",
@@ -16,7 +17,7 @@ const types = {
   addLost: "lost - add",
   resetLost: "lost - reset",
   nextRound: "round - next",
-  clean: "round - clean"
+  clean: "round - clean",
 };
 
 const gameReducer = (state, action) => {
@@ -24,12 +25,12 @@ const gameReducer = (state, action) => {
     case types.addBid: {
       return {
         ...state,
-        bid: state.players[action.index].bid += 1
+        bid: (state.players[action.index].bid += 1),
       };
     }
     case types.resetBid: {
-      let newState = {...state}
-      newState.players[action.index].bid = 0
+      let newState = { ...state };
+      newState.players[action.index].bid = 0;
       return newState;
     }
     case types.addLost: {
@@ -39,25 +40,29 @@ const gameReducer = (state, action) => {
       };
     }
     case types.resetLost: {
-      let newState = {...state}
-      newState.players[action.index].bidsLost = 0
+      let newState = { ...state };
+      newState.players[action.index].bidsLost = 0;
       return newState;
     }
     case types.nextRound: {
-      let newState = {...state}
-      const table = nextRound(newState.players)
-      console.log(table)
-      newState.table = table
-      newState.round = newState.round += 1
-      return newState
+      let newState = { ...state };
+      if (checkLose(newState.players)) {
+        window.alert("No pueden ganar todos!!");
+      } else {
+        const table = nextRound(newState.players);
+        newState.table = table;
+        newState.round = newState.round += 1;
+      }
+      console.log(newState);
+      return newState;
     }
     case types.clean: {
-      let newState = {...state}
-      newState.players.map(p => {
-        p.bid = 0
-        p.bidsLost = 0
-      })
-      return newState
+      let newState = { ...state };
+      newState.players.map((p) => {
+        p.bid = 0;
+        p.bidsLost = 0;
+      });
+      return newState;
     }
     default:
       return state;

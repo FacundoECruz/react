@@ -1,7 +1,6 @@
 import React from "react";
 import PlayerGrid from "./PlayerGrid";
 import dataForBackend from "../javascripts/dataForBackend";
-import checkLose from "../javascripts/checkLose";
 import { useContext } from "react";
 import { GameContext } from "../store/GameProvider";
 import { types, cardsPerRound } from "../store/GameReducer";
@@ -11,23 +10,6 @@ function Round() {
   const [game, dispatch] = useContext(GameContext);
 
   const { round, players, table } = game;
-
-  const nextRound = (e) => {
-    e.preventDefault();
-    let finishedRound = players;
-    if (checkLose(finishedRound)) {
-      window.alert("No pueden ganar todos!!");
-    } else {
-      finishedRound.forEach((p) => {
-        if (p.bidsLost === 0) {
-          p.win = true;
-        }
-      });
-
-      const playersRound = dataForBackend(finishedRound);
-      window.localStorage.setItem("gameState", JSON.stringify(playersRound));
-    }
-  };
 
   return (
     <div className="round-container">
