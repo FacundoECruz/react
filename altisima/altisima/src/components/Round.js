@@ -9,33 +9,40 @@ import "../stylesheets/Round.css";
 function Round() {
   const [game, dispatch] = useContext(GameContext);
 
-  const { round, players, table, cleaned } = game;
+  const { round, players, table, cleaned, inProgress } = game;
 
   return (
     <>
-    <div className="round-container">
-      <div className="title-container">
-        <h1>Ronda {round}</h1>
-        <h3>Cartas: {cardsPerRound[round - 1]}</h3>
-      </div>
-      <div className="player-grids-container">
-        <div className="players-and-button">
-          {players.map((p) => (
-            <PlayerGrid index={p.key} key={p.key} />
-          ))}
+      <div className="round-container">
+        {inProgress 
+        ? <div className="title-container">
+          <h1>Ronda {round}</h1>
+          <h3>Cartas: {cardsPerRound[round - 1]}</h3>
         </div>
-        <button onClick={() => dispatch({ type: types.clean })}>Limpiar</button>
+        : <div className="finish-display">
+          <h1>Juego terminado</h1>
+          <h3>Se lo lleva {table[0].name}</h3>
+          </div>}
+        <div className="player-grids-container">
+          <div className="players-and-button">
+            {players.map((p) => (
+              <PlayerGrid index={p.key} key={p.key} />
+            ))}
+          </div>
+          <button onClick={() => dispatch({ type: types.clean })}>
+            Limpiar
+          </button>
 
-        <button
-          className="next-round-button"
-          onClick={() => dispatch({ type: types.nextRound })}
-          disabled={cleaned}
-        >
-          Siguiente Ronda
-        </button>
+          <button
+            className="next-round-button"
+            onClick={() => dispatch({ type: types.nextRound })}
+            disabled={cleaned}
+          >
+            Siguiente Ronda
+          </button>
+        </div>
       </div>
-    </div>
-    <Table data={table}/>
+      <Table data={table} />
     </>
   );
 }

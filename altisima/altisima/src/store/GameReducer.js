@@ -10,6 +10,7 @@ const gameState = {
   players,
   table: [],
   cleaned: true,
+  inProgress: true,
 };
 
 const types = {
@@ -39,6 +40,7 @@ const gameReducer = (state, action) => {
       return {
         ...state,
         bidsLost: (state.players[action.index].bidsLost += 1),
+        cleaned: false,
       };
     }
     case types.resetLost: {
@@ -50,6 +52,8 @@ const gameReducer = (state, action) => {
       let newState = { ...state };
       if (checkLose(newState.players)) {
         window.alert("No pueden ganar todos!!");
+      } else if(newState.round === 9){
+        newState.inProgress = false;
       } else {
         const table = calculateTable(newState.players);
         newState.table = table;

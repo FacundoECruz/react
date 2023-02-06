@@ -7,7 +7,7 @@ import { types } from "../store/GameReducer";
 function PlayerGrid({ index }) {
   const [game, dispatch] = useContext(GameContext);
 
-  const { players } = game;
+  const { players, inProgress } = game;
 
   return (
     <div className="player-info-container">
@@ -23,6 +23,7 @@ function PlayerGrid({ index }) {
           <button
             id="bid-button"
             onClick={() => dispatch({ type: types.addBid, index: index })}
+            disabled={!inProgress}
           >
             {players[index].bid}
           </button>
@@ -37,6 +38,7 @@ function PlayerGrid({ index }) {
           <button
             id="lost-button"
             onClick={() => dispatch({ type: types.addLost, index: index })}
+            disabled={!inProgress}
           >
             {players[index].bidsLost}
           </button>
