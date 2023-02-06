@@ -1,5 +1,4 @@
-
-function nextRound(tableState) {
+function calculateTable(tableState) {
   
     const pointsForWin = 5;
 
@@ -14,4 +13,4 @@ function nextRound(tableState) {
     return tableState;
   }
 
-export default nextRound;
+export default calculateTable;

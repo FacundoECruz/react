@@ -9,7 +9,7 @@ import "../stylesheets/Round.css";
 function Round() {
   const [game, dispatch] = useContext(GameContext);
 
-  const { round, players, table } = game;
+  const { round, players, table, cleaned } = game;
 
   return (
     <>
@@ -29,6 +29,7 @@ function Round() {
         <button
           className="next-round-button"
           onClick={() => dispatch({ type: types.nextRound })}
+          disabled={cleaned}
         >
           Siguiente Ronda
         </button>

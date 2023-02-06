@@ -1,4 +1,4 @@
-import nextRound from "../javascripts/nextRound";
+import calculateTable from "../javascripts/calculateTable";
 import checkLose from "../javascripts/checkLose";
 
 const dataFromLocalStorage = window.localStorage.getItem("GameCreated");
@@ -9,6 +9,7 @@ const gameState = {
   round: 1,
   players,
   table: [],
+  cleaned: true,
 };
 
 const types = {
@@ -26,6 +27,7 @@ const gameReducer = (state, action) => {
       return {
         ...state,
         bid: (state.players[action.index].bid += 1),
+        cleaned: false
       };
     }
     case types.resetBid: {
@@ -49,9 +51,10 @@ const gameReducer = (state, action) => {
       if (checkLose(newState.players)) {
         window.alert("No pueden ganar todos!!");
       } else {
-        const table = nextRound(newState.players);
+        const table = calculateTable(newState.players);
         newState.table = table;
         newState.round = newState.round += 1;
+        newState.cleaned = true;
       }
       console.log(newState.players)
       return newState;
@@ -62,6 +65,7 @@ const gameReducer = (state, action) => {
         p.bid = 0;
         p.bidsLost = 0;
       });
+      newState.cleaned = false;
       return newState;
     }
     default:
