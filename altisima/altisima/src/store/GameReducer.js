@@ -1,5 +1,14 @@
-import { playersData } from "../javascripts/playersData";
 import nextRound from "../javascripts/nextRound";
+
+const dataFromLocalStorage = window.localStorage.getItem("GameCreated");
+const gameData = JSON.parse(dataFromLocalStorage)
+const { cardsPerRound, players } = gameData;
+
+const gameState = {
+  round: 1,
+  players,
+  table: []
+}
 
 const types = {
   addBid: "bid - add",
@@ -8,12 +17,6 @@ const types = {
   resetLost: "lost - reset",
   nextRound: "round - next",
   clean: "round - clean"
-};
-
-const gameState = {
-  round: 1,
-  players: playersData,
-  table: []
 };
 
 const gameReducer = (state, action) => {

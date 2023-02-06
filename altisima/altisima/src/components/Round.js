@@ -121,6 +121,7 @@ function Round() {
               resetBid={() => resetPlayersBid(p.key)}
               resetLost={() => resetPlayersLost(p.key)}
               index={p.key}
+              key={p.key}
             />
           ))}
         </div>
