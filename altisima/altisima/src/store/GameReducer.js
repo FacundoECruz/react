@@ -64,5 +64,5 @@ const gameReducer = (state, action) => {
   }
 };
 
-export { gameState, types };
+export { gameState, types, cardsPerRound };
 export default gameReducer;
