@@ -29,16 +29,16 @@ function Round() {
               <PlayerGrid index={p.key} key={p.key.toString()} />
             ))}
           </div>
-          <button onClick={() => dispatch({ type: types.clean })}>
+          <button className="custom-btn clean-btn" onClick={() => dispatch({ type: types.clean })}>
             Limpiar
           </button>
 
           <button
-            className="next-round-button"
+            className="custom-btn next-round-btn"
             onClick={() => dispatch({ type: types.nextRound })}
             disabled={cleaned}
           >
-            Siguiente Ronda
+            Siguiente 
           </button>
         </div>
       </div>
