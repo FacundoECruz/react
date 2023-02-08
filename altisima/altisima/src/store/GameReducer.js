@@ -28,7 +28,7 @@ const gameReducer = (state, action) => {
       return {
         ...state,
         bid: (state.players[action.index].bid += 1),
-        cleaned: false
+        cleaned: false,
       };
     }
     case types.resetBid: {
@@ -52,15 +52,17 @@ const gameReducer = (state, action) => {
       let newState = { ...state };
       if (checkLose(newState.players)) {
         window.alert("No pueden ganar todos!!");
-      } else if(newState.round === 9){
-        newState.inProgress = false;
       } else {
         const table = calculateTable(newState.players);
         newState.table = table;
-        newState.round = newState.round += 1;
+        if (newState.round === 9) {
+          newState.inProgress = false;
+        } else {
+          newState.round = newState.round += 1;
+        }
         newState.cleaned = true;
       }
-      console.log(newState.players)
+      console.log(newState.players);
       return newState;
     }
     case types.clean: {
