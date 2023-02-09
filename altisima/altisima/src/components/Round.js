@@ -25,8 +25,8 @@ function Round() {
           </div>}
         <div className="player-grids-container">
           <div className="players-and-button">
-            {players.map((p) => (
-              <PlayerGrid index={p.key} key={p.name} />
+            {players.map((p, index) => (
+              <PlayerGrid index={index} key={p.name} />
             ))}
           </div>
           <button className="custom-btn clean-btn" onClick={() => dispatch({ type: types.clean })}>
