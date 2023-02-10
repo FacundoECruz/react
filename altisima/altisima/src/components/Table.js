@@ -12,7 +12,7 @@ function Table({ data }) {
         {data.map((p) => {
           return (
             <p className="table-name" key={p.key.toString()}>
-              {p.name}: {p.score}
+              {p.name} <span className='score'>{p.score}</span> 
             </p>
           );
         })}

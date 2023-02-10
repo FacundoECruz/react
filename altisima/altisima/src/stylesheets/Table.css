@@ -8,9 +8,29 @@
 
 .table-name {
     color: white;
+    font-family: 'Roboto Serif', serif;
+    font-size: xx-large;
+    border: 1px solid white;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-name:nth-last-child(1) {
+    color: red;
+}
+
+.table-name:nth-first-child(1) {
+    color: green;
 }
 
 #table-title {
+    color: white;
+    align-self: center;
+    padding: 5%;
+}
+
+.score{
     color: white;
 }
 
