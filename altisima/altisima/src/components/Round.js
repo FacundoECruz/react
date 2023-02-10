@@ -12,7 +12,7 @@ function Round() {
   const { round, players, table, cleaned, inProgress } = game;
 
   return (
-    <>
+    <div className="main-container">
       <div className="round-container">
         {inProgress 
         ? <div className="title-container">
@@ -43,7 +43,7 @@ function Round() {
         </div>
       </div>
       <Table data={table} />
-    </>
+    </div>
   );
 }
 
