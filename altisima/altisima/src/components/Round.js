@@ -24,11 +24,12 @@ function Round() {
           <h3>Se lo lleva {table[0].name}</h3>
           </div>}
         <div className="player-grids-container">
-          <div className="players-and-button">
+          <div className="players">
             {players.map((p, index) => (
               <PlayerGrid index={index} key={p.name} />
             ))}
           </div>
+          <div className="controls-btn">
           <button className="custom-btn clean-btn" onClick={() => dispatch({ type: types.clean })}>
             Limpiar
           </button>
@@ -40,6 +41,7 @@ function Round() {
           >
             Siguiente 
           </button>
+          </div>
         </div>
       </div>
       <Table data={table} />

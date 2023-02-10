@@ -10,7 +10,7 @@
   border: 1px solid #E9D8A6;
 }
 
-.players-and-button {
+.players {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -135,9 +135,8 @@ h3 {
   }
   .label {
     margin: 0 0 4% 0;
-    border: 2px solid black;
+    border: 1px solid white;
     text-align: center;
-    border-radius: 25%;
     font-weight: 400;
     font-size: x-small;
   }

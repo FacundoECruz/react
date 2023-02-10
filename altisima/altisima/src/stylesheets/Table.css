@@ -3,34 +3,46 @@
     flex-direction: column;
     width: 50%;
     height: 80%;
-    border: 1px solid white
+    border: 1px solid #EE9B00
 }
 
 .table-name {
     color: white;
     font-family: 'Roboto Serif', serif;
     font-size: xx-large;
-    border: 1px solid white;
+    border: 1px solid #005F73;
     padding: 2%;
     display: flex;
     justify-content: space-between;
 }
-
+/* 
 .table-name:nth-last-child(1) {
     color: red;
 }
 
-.table-name:nth-first-child(1) {
+.table-name:first-child {
     color: green;
-}
+} */
 
 #table-title {
     color: white;
     align-self: center;
     padding: 5%;
+    font-family: 'Roboto Serif', serif;
+    font-weight: 700;
 }
 
 .score{
     color: white;
+    font-weight: 700;
 }
+
+@media only screen and (max-width : 900px) {
+    .table-container{
+        width: 100%;
+    }
+    .table-name{
+        font-size: x-large;
+    }
+  }
 
