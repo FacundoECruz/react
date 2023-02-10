@@ -1,7 +1,7 @@
 .round-container {
   width: 100%;
   height: 80%;
-  background-color: #94d2bd;
+  background-color: #001219;
   align-self: center;
 }
 
@@ -14,6 +14,10 @@
   align-self: center;
 }
 
+#round, #cards {
+  color: white;
+}
+
 /* .players-and-buttons {
   width: 100%;
   height: 100%;
@@ -22,80 +26,25 @@
 } */
 
 .custom-btn {
-  width: 130px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  outline: none;
-  align-self: center;
+  transition: 0.25s;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+.custom-btn:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em #fff;
+  transform: translateY(-0.25em);
+  border-color: #ddd;
 }
 
 .clean-btn {
-  background-color: #89d8d3;
-  border: none;
-  z-index: 1;
-}
-.clean-btn:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  background-color: #7a5de1;
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-.clean-btn:hover {
-  color: #fff;
-}
-.clean-btn:hover:after {
-  left: 0;
-  width: 100%;
-}
-.clean-btn:active {
-  top: 2px;
+  color: #EE9B00;
 }
 
 .next-round-btn {
-  background: #b621fe;
-  border: none;
-  z-index: 1;
-}
-.next-round-btn:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  background-color: #663dff;
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-.next-round-btn:hover {
-  color: #fff;
-}
-.next-round-btn:hover:after {
-  left: 0;
-  width: 100%;
-}
-.next-round-btn:active {
-  top: 2px;
+  color: #005F73;
 }

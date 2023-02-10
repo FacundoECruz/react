@@ -16,8 +16,8 @@ function Round() {
       <div className="round-container">
         {inProgress 
         ? <div className="title-container">
-          <h1>Ronda {round}</h1>
-          <h3>Cartas: {cardsPerRound[round - 1]}</h3>
+          <h1 id="round">Ronda {round}</h1>
+          <h3 id="cards">Cartas: {cardsPerRound[round - 1]}</h3>
         </div>
         : <div className="finish-display">
           <h1>Juego terminado</h1>

@@ -14,12 +14,12 @@ function PlayerGrid({ index }) {
       <h2 className="name">{players[index].name}</h2>
       <div className="buttons">
         <div className="bid-container">
-          <p
+          <button
             className="label"
             onClick={() => dispatch({ type: types.resetBid, index: index })}
           >
             Apuesta
-          </p>
+          </button>
           <button
             id="bid-button"
             onClick={() => dispatch({ type: types.addBid, index: index })}
@@ -29,12 +29,12 @@ function PlayerGrid({ index }) {
           </button>
         </div>
         <div className="lost-container">
-          <p
+          <button 
             className="label"
             onClick={() => dispatch({ type: types.resetLost, index: index })}
           >
             Pierde
-          </p>
+          </button>
           <button
             id="lost-button"
             onClick={() => dispatch({ type: types.addLost, index: index })}
