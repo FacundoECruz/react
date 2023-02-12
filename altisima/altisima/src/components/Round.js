@@ -11,6 +11,8 @@ function Round() {
 
   const { round, players, table, cleaned, inProgress } = game;
 
+  console.log(game)
+
   return (
     <div className="main-container">
       <div className="round-container">
@@ -20,8 +22,8 @@ function Round() {
           <h3 id="cards">Cartas: {cardsPerRound[round - 1]}</h3>
         </div>
         : <div className="finish-display">
-          <h1>Juego terminado</h1>
-          <h3>Se lo lleva {table[0].name}</h3>
+          <h1 className="end-game">Juego terminado</h1>
+          {/* <h3 className="winner-msg">Se lo lleva {table[0].name}</h3> */}
           </div>}
         <div className="player-grids-container">
           <div className="players">

@@ -58,6 +58,17 @@
   color: #005F73;
 }
 
+.finish-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(127, 229, 127);
+}
+
+.end-game, .winner-msg {
+  color: white;
+}
+
 @media only screen and (max-width : 900px) {
   .round-container{
       width: 100%;
