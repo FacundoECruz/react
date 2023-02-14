@@ -11,7 +11,9 @@ function Round() {
 
   const { round, players, table, cleaned, inProgress } = game;
 
-  console.log(game)
+  React.useEffect(() => {
+    console.log(game.table)
+  },[game])
 
   return (
     <div className="main-container">
