@@ -14,15 +14,32 @@
     padding: 2%;
     display: flex;
     justify-content: space-between;
-}
-/* 
-.table-name:nth-last-child(1) {
-    color: red;
+    cursor: pointer;
 }
 
-.table-name:first-child {
+
+.history{
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+.history-show{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    transition: all 0.5s cubic-bezier(1,0,1,0);
+}
+
+.won{
     color: green;
-} */
+}
+
+.lost{
+    color: red;
+}
 
 #table-title {
     color: white;

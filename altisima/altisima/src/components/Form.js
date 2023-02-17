@@ -97,6 +97,7 @@ function Form() {
       score: 0,
       id: name,
       key: name,
+      history: []
     };
 
     //*****VALIDATE NAMES! */

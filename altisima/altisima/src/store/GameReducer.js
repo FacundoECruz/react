@@ -62,7 +62,6 @@ const gameReducer = (state, action) => {
         }
         newState.cleaned = true;
       }
-      console.log(newState.players);
       return newState;
     }
     case types.clean: {

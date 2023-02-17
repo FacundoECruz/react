@@ -4,10 +4,13 @@ function calculateTable(tableState) {
 
     tableState.map((p) => {
       if (p.bidsLost === 0) {
-        p.score = p.score + pointsForWin + p.bid;
+        const winInRound = pointsForWin + p.bid
+        p.score = p.score + winInRound;
         p.win = true;
+        p.history.push(winInRound)
       } else {
         p.score = p.score - p.bidsLost;
+        p.history.push(p.score)
       }
     });
     return tableState;
