@@ -11,7 +11,7 @@ import { types } from "../store/GameReducer";
 function PlayerGrid({ index }) {
   const [game, dispatch] = useContext(GameContext);
 
-  const { players, inProgress } = game;
+  const { players, inProgress } = {...game};
 
   return (
     <div className="player-info-container">

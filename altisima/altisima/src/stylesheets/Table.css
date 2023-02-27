@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    transition: all 0.5s cubic-bezier(1,0,1,0);
+    transition: all 0.9s cubic-bezier(1,0,1,0);
 }
 
 .won{

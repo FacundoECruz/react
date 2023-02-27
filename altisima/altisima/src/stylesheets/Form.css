@@ -1,7 +1,7 @@
 /* Form */
 
 .form-container {
-    width: 80vw;
+    width: 100vw;
     height: 80vh;
     display: flex;
 }
@@ -11,6 +11,7 @@
 .main-input-container {
     width: 50%;
     margin-top: 15px;
+    margin-left: 2%;
 }
 
 .logo-container {
@@ -19,6 +20,7 @@
 
 img {
     max-height: 100%;
+    border: 1px solid #EE9B00;
 }
 
 .input-container {
@@ -43,9 +45,9 @@ input {
 }
 
 #form-title {
-    color: #001219;
+    color: #fff;
     font-family: Roboto, sans-serif;
-    text-shadow: 1px 1px 2px #94D2BD;
+    text-shadow: 1px 1px 2px #005F73;
     margin: 5% 0%;
 }
 
@@ -72,8 +74,6 @@ input {
     width: 50%;
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-start;
-    align-items: flex-start; */
     margin-top: 15px;
 }
 
