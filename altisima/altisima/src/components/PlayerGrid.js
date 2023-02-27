@@ -4,6 +4,10 @@ import { useContext } from "react";
 import { GameContext } from "../store/GameProvider";
 import { types } from "../store/GameReducer";
 
+// Aca el objeto del que saco la data para renderear los 
+// PlayerGrids proviene del provider del contexto, por lo que 
+// tabla y tablero consumen del mismo value.
+
 function PlayerGrid({ index }) {
   const [game, dispatch] = useContext(GameContext);
 

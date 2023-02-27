@@ -11,7 +11,6 @@ function Input({ name, onChange, onSubmit, players }) {
     if (players.length) {
       players.map((p) => {
         let check = p.name === name ? true : false;
-        console.log(check);
         return check;
       });
     }
