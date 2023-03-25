@@ -5,7 +5,7 @@ import Game from "./components/Game";
 
 function App() {
   
-  let startGame = false
+  let startGame = true
   
   return (
     <div className="App">
