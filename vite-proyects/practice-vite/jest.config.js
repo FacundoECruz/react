@@ -1,30 +1,9 @@
-/** @type {import('jest').Config} */
 const config = {
-  verbose: true,
+  collectCoverage: false,
+  collectCoverageFrom: ["src/**/*.{js,jsx}"],
+  coverageDirectory: "coverage",
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
 };
-
-module.exports = {
-  transform: {
-    '^.+\\.jsx?$': 'babel-jest'
-  },
-  moduleNameMapper: {
-    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-  },
-  transformIgnorePatterns: [
-    '/node_modules/'
-  ],
-  preset: '@babel/preset-env'
-};
-
-module.exports = {
-  transform: {
-    "^.+\\.[tj]sx?$": "babel-jest"
-  }
-};
-
-module.exports = {
-  testEnvironment: 'jsdom'
-};
-
 
 module.exports = config;
