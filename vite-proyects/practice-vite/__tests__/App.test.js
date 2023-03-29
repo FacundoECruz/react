@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom';
 import App from "../src/App";
 // import {render} from "@testing-library/react"
  
-test('renders App heading when the app is running', () => { 
+test('renders App heading when t  he app is running', () => { 
   const div = document.createElement('div')
   document.body.append(div)
   ReactDOM.render(<App />, div)
-  console.log(document.body.innerHTML)
+
+  const message = div.firstChild
+  expect(message.textContent).toBe('App')
 })
 
-
-
-// const ui = render(<App />);
-// // console.log(`Aca esta la UI: ${ui}`)
-// const title = ui.screen.getByRole('heading', {  name: /app/i})
-// expect(title).toBeInTheDocument();
