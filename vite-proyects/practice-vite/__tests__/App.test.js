@@ -8,7 +8,14 @@ test('renders App heading when t  he app is running', () => {
   document.body.append(div)
   ReactDOM.render(<App />, div)
 
-  const message = div.firstChild
-  expect(message.textContent).toBe('App')
+  const [decrement, increment] = div.querySelectorAll('button')
+  const message = div.querySelector('h3')
+  expect(message.textContent).toBe('Count: 0')
+
+  increment.click()
+  expect(message.textContent).toBe('Count: 1')
+
+  decrement.click()
+  expect(message.textContent).toBe('Count: 0')
 })
 
