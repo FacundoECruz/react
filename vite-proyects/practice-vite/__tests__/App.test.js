@@ -1,21 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from "../src/App";
-// import {render} from "@testing-library/react"
- 
-test('renders App heading when t  he app is running', () => { 
-  const div = document.createElement('div')
-  document.body.append(div)
-  ReactDOM.render(<App />, div)
+import {render, fireEvent} from "@testing-library/react"
 
-  const [decrement, increment] = div.querySelectorAll('button')
-  const message = div.querySelector('h3')
+test('renders App heading when the app is running', () => { 
+  const {container} = render(<App />)
+
+  
+  const [decrement, increment] = container.querySelectorAll('button')
+  const message = container.querySelector('h3')
+  console.log(message.innerHTML)
   expect(message.textContent).toBe('Count: 0')
-
-  increment.click()
+  
+  fireEvent.click(increment)
   expect(message.textContent).toBe('Count: 1')
 
-  decrement.click()
+  fireEvent.click(decrement)
   expect(message.textContent).toBe('Count: 0')
 })
 
