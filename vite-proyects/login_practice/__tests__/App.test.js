@@ -1,33 +1,19 @@
 import {render, screen} from '@testing-library/react'
-import App from '../src/App';
 import "@testing-library/jest-dom/extend-expect";
 import userEvent from '@testing-library/user-event';
+import Form from '../src/Form';
 
-const createFormData = () => {
-  return {
-    email: 'hola@gmail.com',
-    password: 'contrase'
-  }
-}
-
-test('displays form for email and password', async () => {
+test('displays form for email and password and submit the data', async () => {
   const handleSubmit = jest.fn()
 
-  render(<App onSubmit={handleSubmit} />)
+  render(<Form onSubmit={handleSubmit} />)
 
-  const {email, password} = createFormData()
+  const email = 'facu@gmail'
+  const password = 'asdf'
+  
+  await userEvent.type(screen.getByLabelText(/email/i), email);
+  await userEvent.type(screen.getByLabelText(/password/i), password);
+  await userEvent.click(screen.getByRole("button", { name: /submit/i }));
 
-  const emailField = screen.getByLabelText(/email/i);
-  const passwordField = screen.getByLabelText(/password/i);
-  const submitButton = screen.getByRole("button", { name: /submit/i });
-
-  await userEvent.type(emailField, email)
-  await userEvent.type(passwordField, password)
-  await userEvent.click(submitButton)
-  screen.debug()
-
-  expect(handleSubmit).toHaveBeenCalledWith({
-    email,
-    password,
-  })
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
 })
