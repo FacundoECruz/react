@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { usersApi } from "../api/userApi";
+import useUsers from "../hooks/useUsers";
 
 function UsersPage() {
-  const [users, setUsers] = useState([]);
-
-  // console.log(users)
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await usersApi.get("https://reqres.in/api/users?page=2");
-      setUsers(res.data.data);
-    }
-    fetchData();
-  }, []);
+  
+  const {users} = useUsers();
 
   return (
     <div className="mt-5">
