@@ -15,6 +15,8 @@ function App() {
 
       <button onClick={decrement}>-</button>
       <button onClick={increment}>+</button>
+
+      
     </>
   );
 }
