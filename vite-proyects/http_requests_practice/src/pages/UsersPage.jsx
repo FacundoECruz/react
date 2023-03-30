@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useUsers from "../hooks/useUsers";
+import UserRow from "../components/UserRow";
 
 function UsersPage() {
   
@@ -21,22 +22,7 @@ function UsersPage() {
         <tbody>
           {users.map((u) => {
             return (
-              <tr key={u.email}>
-                <td>{u.id}</td>
-                <td>{u.email}</td>
-                <td>
-                  {u.last_name}, {u.first_name}
-                </td>
-                <td>
-                  <img
-                    src={u.avatar}
-                    className="img-thumbnail"
-                    style={{
-                      width: 50,
-                    }}
-                  />
-                </td>
-              </tr>
+              <UserRow key={ u.email } user={u}/>
             );
           })}
         </tbody>
