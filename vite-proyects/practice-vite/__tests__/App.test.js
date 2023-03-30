@@ -1,9 +1,10 @@
 import React from 'react';
 import App from "../src/App";
-import {render, screen, fireEvent} from "@testing-library/react"
+import {render, screen} from "@testing-library/react"
+import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 
-test('renders App heading when the app is running', () => { 
+test('renders App heading when the app is running', async () => { 
   render(<App />)
 
   const increment = screen.getByRole('button', {name: '+'})
@@ -12,10 +13,10 @@ test('renders App heading when the app is running', () => {
 
   expect(message).toHaveTextContent('Count: 0')
   
-  fireEvent.click(increment)
+  await userEvent.click(increment)
   expect(message).toHaveTextContent('Count: 1')
 
-  fireEvent.click(decrement)
+  await userEvent.click(decrement)
   expect(message).toHaveTextContent('Count: 0')
 })
 
