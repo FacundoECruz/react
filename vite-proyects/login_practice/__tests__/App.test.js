@@ -15,7 +15,7 @@ test('displays form for email and password', async () => {
   expect(submitButton).toBeInTheDocument()
 })
 
-test('should sumbit the data when submit button is clicked', async () => {
+test('should call handleSubmit when the submit button is clicked', async () => {
   const handleSubmit = jest.fn()
 
   render(<Form onSubmit={handleSubmit} />)
