@@ -17,15 +17,18 @@ test('displays form for email and password', async () => {
 
 test('should call handleSubmit when the submit button is clicked', async () => {
   const handleSubmit = jest.fn()
-
   render(<Form onSubmit={handleSubmit} />)
-
-  const email = 'facu@gmail'
-  const password = 'asdf'
+  
+  const email = 'eve.holt@reqres.in'
+  const password = 'cityslicka'
   
   await userEvent.type(screen.getByLabelText(/email/i), email);
   await userEvent.type(screen.getByLabelText(/password/i), password);
   await userEvent.click(screen.getByRole("button", { name: /submit/i }));
 
+  expect(handleSubmit).toBeCalledWith({
+    email,
+    password,
+  })
   expect(handleSubmit).toHaveBeenCalledTimes(1)
 })

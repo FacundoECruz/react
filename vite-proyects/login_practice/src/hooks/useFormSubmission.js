@@ -16,7 +16,7 @@ function formSubmissionReducer(state, action) {
       return {
         status: 'rejected',
         responseData: null,
-        errorMessage: action.error.message,
+        errorMessage: action.error.error,
       }
     }
     default:
