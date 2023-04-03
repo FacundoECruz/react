@@ -14,7 +14,6 @@ function Form({ onSubmit }) {
       password: passwordRef.current.value,
     })
 
-    console.log("Inside of the real handleSubmit")
     axios({
       method: 'POST',
       url: 'https://reqres.in/api/register',
