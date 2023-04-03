@@ -22,13 +22,13 @@ function UsersPage() {
         <tbody>
           {users.map((u) => {
             return (
-              <UserRow key={ u.email } user={u}/>
+              <UserRow key={ u.email } user={ u }/>
             );
           })}
         </tbody>
       </table>
     </div>
   );
-}
+ }
 
 export default UsersPage;

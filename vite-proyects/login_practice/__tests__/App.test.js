@@ -3,7 +3,19 @@ import "@testing-library/jest-dom/extend-expect";
 import userEvent from '@testing-library/user-event';
 import Form from '../src/Form';
 
-test('displays form for email and password and submit the data', async () => {
+test('displays form for email and password', async () => {
+  render(<Form />)
+  
+  const emailField = screen.getByLabelText(/email/i)
+  const passwordField = screen.getByLabelText(/password/i)
+  const submitButton = screen.getByRole("button", { name: /submit/i })
+
+  expect(emailField).toBeInTheDocument()
+  expect(passwordField).toBeInTheDocument()
+  expect(submitButton).toBeInTheDocument()
+})
+
+test('should sumbit the data when submit button is clicked', async () => {
   const handleSubmit = jest.fn()
 
   render(<Form onSubmit={handleSubmit} />)
