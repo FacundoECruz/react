@@ -2,15 +2,17 @@ import * as React from "react";
 import { render, screen, cleanup } from "@testing-library/react";
 import PlayerGrid from "../components/PlayerGrid";
 
-const player = {
+const playerData = {
   name: "Antone",
-  score: 20,
-};
+  score: 25,
+  bet: 2,
+  lost: 0,
+}
 
 describe("players grid", () => {
   it("should display name and score", () => {
-    render(<PlayerGrid name={player.name} score={player.score} />);
-    const name = screen.getByText(player.name);
+    render(<PlayerGrid player={playerData} />);
+    const name = screen.getByText(playerData.name);
     const score = screen.getByTestId("score");
 
     expect(name).toBeInTheDocument()
@@ -18,16 +20,7 @@ describe("players grid", () => {
   });
 
   it("should display control buttons and bet/lost values", () => {
-    const playerData = {
-      name: "Antone",
-      score: 25,
-      bet: 2,
-      lost: 0,
-    }
-
     render(<PlayerGrid player={playerData}/>)
-
-    screen.debug()
 
     const bet = screen.getByTestId("bet-value");
     const lost = screen.getByTestId("lost-value");
